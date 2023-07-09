@@ -1,0 +1,49 @@
+Microsoft Windows [Version 10.0.19045.3086]
+(c) Microsoft Corporation. All rights reserved.
+
+E:\Udacity>ssh -i "primary-key.pem" ec2-user@ec2-52-87-156-109.compute-1.amazonaws.com
+Last login: Sun Jul  9 05:47:25 2023 from 115.73.188.11
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux 2 AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-2/
+[ec2-user@ip-10-1-11-252 ~]$ Last login: Sun Jul  9 05:47:25 2023 from 115.73.188.11
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux 2 AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-2/
+[ec2-user@ip-10-1-11-252 ~]$ mysql -h mysql-primary.cbbnachyloqb.us-east-1.rds.amazonaws.com -u admin -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 195
+Server version: 8.0.32 Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [(none)]> use udacity
+Database changed
+MySQL [udacity]> create table tutorials( tutorial_id INT NOT NULL AUTO_INCREMENT, tutorial_title VARCHAR(100) NOT NULL, PRIMARY KEY ( tutorial_id ) );
+Query OK, 0 rows affected (0.07 sec)
+
+MySQL [udacity]> insert into tutorials (tutorial_title) VALUES ('Udacity AWS');
+Query OK, 1 row affected (0.02 sec)
+
+MySQL [udacity]> insert into tutorials (tutorial_title) VALUES ('Udacity AWS RDS');
+Query OK, 1 row affected (0.01 sec)
+
+MySQL [udacity]> select * from tutorials;
++-------------+-----------------+
+| tutorial_id | tutorial_title  |
++-------------+-----------------+
+|           1 | Udacity AWS     |
+|           2 | Udacity AWS RDS |
++-------------+-----------------+
+2 rows in set (0.00 sec)
+
+MySQL [udacity]>
